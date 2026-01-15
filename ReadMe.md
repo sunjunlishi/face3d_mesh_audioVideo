@@ -8,7 +8,7 @@
 
 效果如下
 
-  <video src="https://github.com/sunjunlishi/face3d_mesh_audioVideo/blob/main/ttsdemo.mp4" width="1000" controls></video>
+ https://bilibili.com/video/BV1a6rfBsEL2/
 
 源码来自
 
