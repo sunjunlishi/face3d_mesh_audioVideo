@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{13f952ab-0d4d-4b85-ba1b-3f9aa13781fe}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{a385c838-3fb8-420a-abfd-2bdaf571f74b}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{eac53d8c-112c-45e4-85fe-31eab24c20f5}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="mfc3dShow">
+      <UniqueIdentifier>{6b87c58c-b93e-4429-9efe-a600be72a0e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CaptureDlg">
+      <UniqueIdentifier>{3ab0f655-c896-47b5-b7ad-51b453425f9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{361afe1e-176a-420a-83c1-02d0cefd8eb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SpecialEfect">
+      <UniqueIdentifier>{b8e84bfd-03cd-4177-a74f-b663451157e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="facedetect">
+      <UniqueIdentifier>{f3f36af9-8235-4b31-859b-a7ad8fb11283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="soundplay">
+      <UniqueIdentifier>{d63f7cc7-7061-4f77-bddf-9b64fb48cc5d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Bezier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BezierDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mfc3dshow\GLDevice.cpp">
+      <Filter>mfc3dShow</Filter>
+    </ClCompile>
+    <ClCompile Include="mfc3dshow\Nehe\3DFace.cpp">
+      <Filter>mfc3dShow</Filter>
+    </ClCompile>
+    <ClCompile Include="mfc3dshow\Nehe\ObjLoader.cpp">
+      <Filter>mfc3dShow</Filter>
+    </ClCompile>
+    <ClCompile Include="mfc3dshow\Nehe\YicEntity.cpp">
+      <Filter>mfc3dShow</Filter>
+    </ClCompile>
+    <ClCompile Include="mfc3dshow\MFCDlgDlg.cpp">
+      <Filter>mfc3dShow</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraDS.cpp">
+      <Filter>CaptureDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="CaptureImage.cpp">
+      <Filter>CaptureDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="CaptureVideo.cpp">
+      <Filter>CaptureDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="USBVideoDlg.cpp">
+      <Filter>CaptureDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="PublicFun.cpp">
+      <Filter>CaptureDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="jingmo\cpp\detection\face_detector.cpp">
+      <Filter>facedetect</Filter>
+    </ClCompile>
+    <ClCompile Include="TopLayerdlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\gLobalInfo.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="SpecialEfect\SpecialEfect.cpp">
+      <Filter>SpecialEfect</Filter>
+    </ClCompile>
+    <ClCompile Include="globals.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="soundplay\MyWinthread.cpp">
+      <Filter>soundplay</Filter>
+    </ClCompile>
+    <ClCompile Include="soundplay\Pipe.cpp">
+      <Filter>soundplay</Filter>
+    </ClCompile>
+    <ClCompile Include="soundplay\PtrFifo.cpp">
+      <Filter>soundplay</Filter>
+    </ClCompile>
+    <ClCompile Include="soundplay\SoundBase.cpp">
+      <Filter>soundplay</Filter>
+    </ClCompile>
+    <ClCompile Include="soundplay\SoundFile.cpp">
+      <Filter>soundplay</Filter>
+    </ClCompile>
+    <ClCompile Include="soundplay\SoundIn.cpp">
+      <Filter>soundplay</Filter>
+    </ClCompile>
+    <ClCompile Include="soundplay\SoundOut.cpp">
+      <Filter>soundplay</Filter>
+    </ClCompile>
+    <ClCompile Include="soundplay\Buffer.cpp">
+      <Filter>soundplay</Filter>
+    </ClCompile>
+    <ClCompile Include="soundplay\errorprint.cpp">
+      <Filter>soundplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\hanziPinyin.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Bezier.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bezier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mfc3dshow\GLDevice.h">
+      <Filter>mfc3dShow</Filter>
+    </ClInclude>
+    <ClInclude Include="mfc3dshow\Nehe\3DFace.h">
+      <Filter>mfc3dShow</Filter>
+    </ClInclude>
+    <ClInclude Include="mfc3dshow\Nehe\ObjLoader.h">
+      <Filter>mfc3dShow</Filter>
+    </ClInclude>
+    <ClInclude Include="mfc3dshow\Nehe\YicEntity.h">
+      <Filter>mfc3dShow</Filter>
+    </ClInclude>
+    <ClInclude Include="mfc3dshow\MFCDlgDlg.h">
+      <Filter>mfc3dShow</Filter>
+    </ClInclude>
+    <ClInclude Include="BezierDlg.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraDS.h">
+      <Filter>CaptureDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="CaptureImage.h">
+      <Filter>CaptureDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="CaptureVideo.h">
+      <Filter>CaptureDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="USBVideoDlg.h">
+      <Filter>CaptureDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="PublicFun.h">
+      <Filter>CaptureDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="jingmo\cpp\detection\face_detector.h">
+      <Filter>facedetect</Filter>
+    </ClInclude>
+    <ClInclude Include="TopLayerdlg.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\gLobalInfo.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="SpecialEfect\SpecialEfect.h">
+      <Filter>SpecialEfect</Filter>
+    </ClInclude>
+    <ClInclude Include="globals.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="soundplay\MyWinthread.h">
+      <Filter>soundplay</Filter>
+    </ClInclude>
+    <ClInclude Include="soundplay\Pipe.h">
+      <Filter>soundplay</Filter>
+    </ClInclude>
+    <ClInclude Include="soundplay\PtrFifo.h">
+      <Filter>soundplay</Filter>
+    </ClInclude>
+    <ClInclude Include="soundplay\SoundBase.h">
+      <Filter>soundplay</Filter>
+    </ClInclude>
+    <ClInclude Include="soundplay\SoundFile.h">
+      <Filter>soundplay</Filter>
+    </ClInclude>
+    <ClInclude Include="soundplay\SoundIn.h">
+      <Filter>soundplay</Filter>
+    </ClInclude>
+    <ClInclude Include="soundplay\SoundOut.h">
+      <Filter>soundplay</Filter>
+    </ClInclude>
+    <ClInclude Include="soundplay\Buffer.h">
+      <Filter>soundplay</Filter>
+    </ClInclude>
+    <ClInclude Include="soundplay\errorprint.h">
+      <Filter>soundplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\hanziPinyin.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="testonnx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Bezier.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="res\Bezier.rc2">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

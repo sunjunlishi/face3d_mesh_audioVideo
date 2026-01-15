@@ -1,0 +1,518 @@
+
+void C3DFace::display(void)
+{
+
+	GLfloat green[] = { 0.85f,0.80f,0.75f,1.0f };
+	GLfloat yellow[] = { 0.2f,0.1f,0.1f,1.0f };
+	GLfloat white[] = { 0.2f,0.2f,0.2f,1.0f };
+	GLfloat gray[] = { 0.1f, 0.1f, 0.1f, 1.0f };
+
+	glEnable(GL_LIGHT0);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_COLOR_MATERIAL);
+
+
+
+
+
+
+	glShadeModel(GL_SMOOTH);
+
+
+
+
+	if (!bInitedObj)
+	{
+
+		for (int k = 0; k < 25; ++k)
+		{
+			gtObjs[k] = *mObjs[k];
+		}
+
+		
+		bInitedObj = true;
+	}
+
+
+	ObjModel * tObEnd = mObjs[mObjs.size() - 1];//brown down
+	if (bFrist)
+	{
+		CalcNormals(&gtObjs[0]);
+		CalcNormals(mdataObj);
+		CalcNormals(mObjs[mObjs.size() -4]);
+		CalcNormals(mObjs[mObjs.size() -3]);
+		CalcNormals(mObjs[mObjs.size() - 2]);
+		CalcNormals(mObjs[mObjs.size() - 1]);
+	}
+
+
+	if (tmpObj == NULL)
+	{
+		tmpObj = new ObjModel();
+		tmpObjEye = new ObjModel();
+		tmpObjEyeR = new ObjModel();
+
+		tmpObjBrown = new ObjModel();
+		tmpObjBrownT = new ObjModel();
+
+		tmpObjBrownR = new ObjModel();
+		tmpObjBrownTR = new ObjModel();
+
+		tmpObjSmile = new ObjModel();
+		tmpObjSmileR = new ObjModel();
+
+		tmpObjJawOpen = new ObjModel();
+		tmpObjToptipShrug = new ObjModel();
+		tmpObjMPressL = new ObjModel();
+		tmpObjMPressR = new ObjModel();
+		tmpObjPucker = new ObjModel();
+		gIdenNew = new ObjModel();
+
+
+		tmpObjStretchL = new ObjModel();//嘴角拉伸L
+		tmpObjStretchR = new ObjModel();//嘴角拉伸R
+		tmpObjFunnel = new ObjModel();//张嘴撅嘴
+		tmpObjRollUpper = new ObjModel();//上嘴唇卷起
+		tmpObjRollLower = new ObjModel();//下嘴唇卷起
+
+		tmpObjTopLipLUp = new ObjModel();//上左嘴唇抬起
+		tmpObjTopLipRUp = new ObjModel();//上右嘴唇抬起
+
+		 tmpObjBottomLipLlower = new ObjModel();//下左嘴唇降低
+		 tmpObjBottomLipRlower = new ObjModel();//下右嘴唇降低
+
+		*tmpObj = gtObjs[0];
+		*tmpObjEye = gtObjs[0];
+		*tmpObjEyeR = gtObjs[0];
+		*gIdenNew = gtObjs[0];
+
+
+		*tmpObjBrown = gtObjs[0];
+		*tmpObjBrownT = gtObjs[0];
+		
+		*tmpObjBrownR = gtObjs[0];
+		*tmpObjBrownTR = gtObjs[0];
+
+		*tmpObjSmile = gtObjs[0];
+		*tmpObjSmileR = gtObjs[0];
+		*tmpObjPucker = gtObjs[0];
+		*tmpObjJawOpen = gtObjs[0];
+		*tmpObjMPressL = gtObjs[0];
+		*tmpObjMPressR = gtObjs[0];
+		*tmpObjToptipShrug = gtObjs[0];
+
+
+		*tmpObjStretchL = gtObjs[0];
+		*tmpObjStretchR = gtObjs[0];
+
+		*tmpObjFunnel = gtObjs[0];
+		*tmpObjRollUpper = gtObjs[0];
+		*tmpObjRollLower = gtObjs[0];
+
+		*tmpObjTopLipLUp = gtObjs[0];//上左嘴唇抬起
+		*tmpObjTopLipRUp = gtObjs[0];//上右嘴唇抬起
+
+		*tmpObjBottomLipLlower = gtObjs[0];//下左嘴唇降低
+		*tmpObjBottomLipRlower = gtObjs[0];//下右嘴唇降低
+	}
+
+
+	//glRotated(180, 0, 1, 0);//绕(0,1,0)
+	//char szinfo[256];
+	float fRx = -mrotateXF * 180 / 3.1415926*0.55;
+	float fRy = mrotateYF * 180 / 3.1415926*0.75;
+	float fRz = mrotateZF * 180 / 3.1415926*0.35;
+
+	fRx = getResAvg(fRx, gRxs);
+	fRy = getResAvg(fRy, gRys);
+	fRz = getResAvg(fRz, gRzs);
+
+	//159 145  eyedis
+
+	if (gBstarted)
+	{
+		
+		float fa = 0.5;
+
+		//25351:26034
+		//[26035:26718
+
+			 //  Eye blend left[24999:25022][25018:25032]	24	15
+			//	Eye blend right[25023:25046][25033:25047]	24	15
+
+
+			//#13	Eye occlusion left[25047:25198][25048:25175]	152	128
+			//#14	Eye occlusion right[25199:25350][25176:25303]	152	128
+			//Eye socket left[13294:13677][13226:13629]	384	404
+			//Eye socket right[13678:14061]
+
+		//1225, 1888, 1052, 367, 1719, 1722, 2199, 1447, 966, 3661, 4390, 3927, 3924, 2608, 3272, 4088, 3443, 
+		//268, 493, 1914, 2044, 1401, 3615, 4240, 4114, 2734, 2509, 978, 4527, 4942, 4857, 1140, 2075, 1147, 4269, 3360, 1507, 1542, 1537, 1528, 1518, 1511, 3742, 3751, 3756, 3721, 3725, 3732, 5708, 5695, 2081, 0, 4275, 6200, 6213, 6346, 6461, 5518, 5957, 5841, 5702, 5711, 5533, 6216, 6207, 6470, 5517, 5966
+
+
+		if (!bInitedEeye)
+		{
+			DoInitEyeOther();
+
+			bInitedEeye = true;
+		}
+
+
+		//61 291 dis
+		float fres1 = mdataObj->VertexArray[61].X - mdataObj->VertexArray[291].X;
+		float fres2 = mdataObj->VertexArray[61].Y - mdataObj->VertexArray[291].Y;
+		float fres3 = mdataObj->VertexArray[61].Z - mdataObj->VertexArray[291].Z;
+
+		float tres = fres1*fres1 + fres2*fres2 + fres3*fres3;
+
+
+		bool bMouthStretch = false;
+		float faJue = 0.0;
+		if (fFirsDis == -1 && gBstarted)
+		{
+			fFirsDis = tres;
+		}
+
+
+		if (fFirsDis > tres)
+		{
+
+			//噘嘴
+			faJue = (fFirsDis - tres) / fFirsDis*1.8;
+			faJue = 1 - faJue;
+
+			for (int iDex = 0; iDex < 9408; ++iDex)
+			{
+				tmpObj->VertexArray[iDex].X = gtObjs[0].VertexArray[iDex].X + tmpObjPucker->VertexArray[iDex].X*(1 - faJue);
+				tmpObj->VertexArray[iDex].Y = gtObjs[0].VertexArray[iDex].Y + tmpObjPucker->VertexArray[iDex].Y*(1 - faJue);
+				tmpObj->VertexArray[iDex].Z = gtObjs[0].VertexArray[iDex].Z + tmpObjPucker->VertexArray[iDex].Z*(1 - faJue);
+
+			}
+		}
+		else
+		{//嘴裂开,微笑
+
+			bMouthStretch = true;
+			float fat = (tres - fFirsDis) / fFirsDis*1.0;
+			for (int iDex = 0; iDex < 9408; ++iDex)
+			{
+				tmpObj->VertexArray[iDex].X = tmpObjSmile->VertexArray[iDex].X*fat + tmpObjSmileR->VertexArray[iDex].X*fat+ gtObjs[0].VertexArray[iDex].X;
+				tmpObj->VertexArray[iDex].Y = tmpObjSmile->VertexArray[iDex].Y*fat + tmpObjSmileR->VertexArray[iDex].Y*fat + gtObjs[0].VertexArray[iDex].Y;
+				tmpObj->VertexArray[iDex].Z = tmpObjSmile->VertexArray[iDex].Z*fat + tmpObjSmileR->VertexArray[iDex].Z*fat + gtObjs[0].VertexArray[iDex].Z;
+
+			}
+		}
+
+	
+		
+		if (fDisUperTopLip == -1)
+		{
+			fDisUperTopLip = fabs(mdataObj->VertexArray[13].Y - mdataObj->VertexArray[1].Y);
+		}
+	
+
+	
+		if (mEyeBlink < 1 && mEyeBlink >0)
+		{
+			for (int iDex = 0; iDex < 9408; ++iDex)
+			{
+				tmpObj->VertexArray[iDex].X = tmpObjEye->VertexArray[iDex].X*mEyeBlink + tmpObjEyeR->VertexArray[iDex].X*mEyeBlink + tmpObj->VertexArray[iDex].X;
+				tmpObj->VertexArray[iDex].Y = tmpObjEye->VertexArray[iDex].Y*mEyeBlink + tmpObjEyeR->VertexArray[iDex].Y*mEyeBlink + tmpObj->VertexArray[iDex].Y;
+				tmpObj->VertexArray[iDex].Z = tmpObjEye->VertexArray[iDex].Z*mEyeBlink + tmpObjEyeR->VertexArray[iDex].Z*mEyeBlink + tmpObj->VertexArray[iDex].Z;
+			}
+		}
+
+		//上下嘴唇，张嘴
+		//13 14
+		 fres1 = mdataObj->VertexArray[13].X - mdataObj->VertexArray[14].X;
+		 fres2 = mdataObj->VertexArray[13].Y - mdataObj->VertexArray[14].Y;
+		 fres3 = mdataObj->VertexArray[13].Z - mdataObj->VertexArray[14].Z;
+
+		 tres = fres1*fres1 + fres2*fres2 + fres3*fres3;
+		
+		float fa1 = tres / fFirsDis*1.650;
+		if (fa1 > 1) fa1 = 1;
+		if (fa1 < 0) fa1 = 0;
+		for (int iDex = 0; iDex <= 21450; ++iDex)
+		{
+			tmpObj->VertexArray[iDex].X = tmpObjJawOpen->VertexArray[iDex].X*fa1 + tmpObj->VertexArray[iDex].X*(1-fa1);
+			tmpObj->VertexArray[iDex].Y = tmpObjJawOpen->VertexArray[iDex].Y*fa1 + tmpObj->VertexArray[iDex].Y*(1 - fa1);
+			tmpObj->VertexArray[iDex].Z = tmpObjJawOpen->VertexArray[iDex].Z*fa1 + tmpObj->VertexArray[iDex].Z*(1 - fa1);
+
+		}
+	
+	
+	
+	}
+	
+
+	//[24591:24794][24692:24854]	204	163
+//#10	Lacrimal      [24795:24998][24855:25017]	204	163
+//#11	Eye blend left[24999:25022][25018:25032]	24	15
+//#12	Eye blend right[25023:25046][25033:25047]	24	1
+//随机眼睛进行动
+
+	
+
+
+	gIdex++;
+
+
+	glLoadIdentity();
+	gluLookAt(0, 1.5f, 50, 0, 1.4f, 0, 0, 1, 0);
+
+	glRotated(fRx, 1, 0, 0);//绕(1,0,0)
+	glRotated(fRy, 0, 1, 0);//绕(0,1,0)
+	glRotated(fRz, 0, 0, 1);//绕(0,0,1)
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	// 自发光
+	glMaterialfv(GL_FRONT, GL_EMISSION, green);
+	// 环境光
+	glMaterialfv(GL_FRONT, GL_AMBIENT, green);
+	// 漫反射光
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, green);
+	// 镜面反射光
+	glMaterialfv(GL_FRONT, GL_SPECULAR, green);
+	glMaterialf(GL_FRONT, GL_SHININESS, 20.0f);
+
+	//DoDrawObj(&gtObjs[0], 0, 0, 6559, true);
+
+	//DoDrawObj(&gtObjs[0],0, 6560, 9229,true);
+	//DoDrawObj(&gtObjs[0], 1, 9230, 11143, true);//uv_headneck
+
+	glLoadIdentity();
+	gluLookAt(0, 1.5f, 50, 0, 1.4f, 0, 0, 1, 0);
+	//glRotated(fRx, 1, 0, 0);//绕(1,0,0)
+	//glRotated(fRy, 0, 1, 0);//绕(0,1,0)
+	//glRotated(fRz, 0, 0, 1);//绕(0,0,1)
+
+	if (m_tietu)
+	{
+		DoDrawObjRxyz(&gtObjs[0], 11+ m_tietu, 0, 6559, fRx, fRy, fRz, true);
+		DoDrawObjRxyz(&gtObjs[0], 11+ m_tietu, 6560, 9229, fRx, fRy, fRz, true);
+	}
+	else
+	{
+		DoDrawObjRxyz(&gtObjs[0], 0, 0, 6559, fRx, fRy, fRz, true);
+		DoDrawObjRxyz(&gtObjs[0], 0, 6560, 9229, fRx, fRy, fRz, true);
+	}
+
+
+	DoDrawObjRxyz(&gtObjs[0], 1, 9230, 14033, fRx, fRy, fRz, true);
+
+
+	glLoadIdentity();
+	gluLookAt(0, 1.5f, 50, 0, 1.4f, 0, 0, 1, 0);
+
+	glRotated(fRx, 1, 0, 0);//绕(1,0,0)
+	glRotated(fRy, 0, 1, 0);//绕(0,1,0)
+	glRotated(fRz, 0, 0, 1);//绕(0,0,1)
+
+							//脖子扭动有瑕疵，再绘制一次
+   
+
+
+	glLoadIdentity();
+	gluLookAt(0, 1.5f, 50, 0, 1.4f, 0, 0, 1, 0);
+
+	glRotated(fRx, 1, 0, 0);//绕(1,0,0)
+	glRotated(fRy, 0, 1, 0);//绕(0,1,0)
+	glRotated(fRz, 0, 0, 1);//绕(0,0,1)
+
+
+
+	DoDrawObj(&gtObjs[0],2, 14034,17005,true);//uv_gums_tongue
+
+	//teeth
+	DoDrawObj(&gtObjs[0], 3, 17006, 21495,true);//uv_teeth
+
+
+	
+	float fxa = 0.0;
+	float fya = 0.0;
+	float fza = 0.0;
+	for (int t = 21451; t <= 22220; ++t)
+	{
+		fxa += tmpObj->VertexArray[t].X;
+		fya += tmpObj->VertexArray[t].Y;
+		fza += tmpObj->VertexArray[t].Z;
+	}
+	fxa = fxa / (22220 - 21451+1);
+	fya = fya / (22220 - 21451 + 1);
+	fza = fza / (22220 - 21451 + 1);
+
+	
+	PosXYZ s1;
+	s1[0] = fxa;
+	s1[1] = fya;
+	s1[2] = fza;
+	PosXYZ p1 = R_active_x(mrotateXF, s1);
+	PosXYZ p2 = R_active_y(mrotateYF, p1);
+	PosXYZ p3 = R_active_z(mrotateZF, p2);
+
+	glLoadIdentity();
+	gluLookAt(0, 1.5f, 50, 0, 1.4f, 0, 0, 1, 0);
+
+
+	glRotated(fRx, 1, 0, 0);//绕(1,0,0)
+	glRotated(fRy, 0, 1, 0);//绕(0,1,0)
+	glRotated(fRz, 0, 0, 1);//绕(0,0,1)
+
+
+	glTranslatef(p3[0], p3[1], p3[2]- 0.7); // 正方体的中心从（0.5,0.5,0.5)移动到（0,0,0)
+
+	glRotated(mEyeRx, 1, 0, 0);//绕(1,0,0)
+	glRotated(mEyeRy, 0, 1, 0);//绕(0,1,0)
+	
+	DoDrawObj(&gtObjs[0], 4, 21496, 22295, true,fxa,fya,fza);
+	//DoDrawObj(&gtObjs[0], 5, 22296, 23093, true);
+
+
+
+	 fxa = 0.0;
+	 fya = 0.0;
+	 fza = 0.0; 
+	for (int t = 23021; t <= 23790; ++t)
+	{
+		fxa += tmpObj->VertexArray[t].X;
+		fya += tmpObj->VertexArray[t].Y;
+		fza += tmpObj->VertexArray[t].Z;
+	}
+	fxa = fxa / (23790 - 23021 + 1);
+	fya = fya / (23790 - 23021 + 1);
+	fza = fza / (23790 - 23021 + 1);
+
+
+	s1[0] = fxa;
+	s1[1] = fya;
+	s1[2] = fza;
+	 p1 = R_active_x(mrotateXF, s1);
+	 p2 = R_active_y(mrotateYF, p1);
+	 p3 = R_active_z(mrotateZF, p2);
+
+	glLoadIdentity();
+	gluLookAt(0, 1.5f, 50, 0, 1.4f, 0, 0, 1, 0);
+
+	glRotated(fRx, 1, 0, 0);//绕(1,0,0)
+	glRotated(fRy, 0, 1, 0);//绕(0,1,0)
+	glRotated(fRz, 0, 0, 1);//绕(0,0,1)
+
+
+	glTranslatef(p3[0], p3[1], p3[2] - 0.7); // 正方体的中心从（0.5,0.5,0.5)移动到（0,0,0)
+
+	
+									   //glRotated(fEyeRatio, 0, 1, 0);//绕(1,0,0)
+
+
+	glRotated(mEyeRx , 1, 0, 0);//绕(1,0,0)
+	glRotated(mEyeRy , 0, 1, 0);//绕(0,1,0)
+	
+
+   //Sclera right  Iris right
+	DoDrawObj(&gtObjs[0],6, 23094, 23893, true,fxa,fya,fza);
+
+	//DoDrawObj(&gtObjs[0], 7, 23894, 24691, true);
+	//两个6 7
+
+
+	glLoadIdentity();
+	gluLookAt(0, 1.5f, 50, 0, 1.4f, 0, 0, 1, 0);
+
+	glRotated(fRx, 1, 0, 0);//绕(1,0,0)
+	glRotated(fRy, 0, 1, 0);//绕(0,1,0)
+	glRotated(fRz, 0, 0, 1);//绕(0,0,1)
+
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	//lacrimal fluid
+	DoDrawObj(&gtObjs[0], 8, 24692, 25017, true);
+
+	//blend
+	///DoDrawObj(&gtObjs[0],9, 25018, 25047, true);
+	
+	
+	//occlusion
+	DoDrawObj(&gtObjs[0], 10, 25048, 25175, true);
+	DoDrawObj(&gtObjs[0], 10, 25176, 25303, true);
+
+	//eyelash
+	//DoDrawObj(&gtObjs[0], 11, 25304, 26383,true);
+
+	DoDrawObj(&gtObjs[0], 10, 25176, 25303, true);
+	glDisable(GL_BLEND);
+
+	glDisable(GL_LIGHT0);
+	glDisable(GL_LIGHTING);
+
+	glEnable(GL_LIGHT0);
+	glEnable(GL_LIGHTING);
+	// 自发光
+	glMaterialfv(GL_FRONT, GL_EMISSION, gray);
+
+	// 环境光
+	glMaterialfv(GL_FRONT, GL_AMBIENT, gray);
+	// 漫反射光
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, gray);
+	// 镜面反射光
+	glMaterialfv(GL_FRONT, GL_SPECULAR, gray);
+
+	glMaterialf(GL_FRONT, GL_SHININESS, 5.0f);
+	//DoDrawObjGeneral(mObjs[mObjs.size()-2],242.2,0,145,0,true);
+
+	if (m_toushi)
+	{
+		
+		if (m_toushi == 4)
+		{
+			DoDrawObjGeneral(mObjs[mObjs.size() - 4], 1.17, 0, 179, -1.6, true);
+		}
+		if (m_toushi == 3)
+		{
+			DoDrawObjGeneral(mObjs[mObjs.size() -3],83.75, 0, 121, -1.6, true);
+		}
+		if (m_toushi == 2)
+		{
+			DoDrawObjGeneral(mObjs[mObjs.size() -2],14.75, 0,-1.3, -1.6, true);
+		}
+		if (m_toushi == 1)
+		{
+			DoDrawObjGeneral(mObjs[mObjs.size() - 1], 1.149, 0, 180, -4, true);
+		}
+
+		
+	}
+
+
+	glColor3f(0.85, 0.8, 0.7);
+   
+	glMaterialfv(GL_FRONT, GL_EMISSION, green);
+
+	// 环境光
+	glMaterialfv(GL_FRONT, GL_AMBIENT, green);
+	// 漫反射光
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, green);
+	// 镜面反射光
+	glMaterialfv(GL_FRONT, GL_SPECULAR, green);
+  
+
+	glLoadIdentity();
+	gluLookAt(0, 1.5f, 50, 0, 1.4f, 0, 0, 1, 0);
+
+	glRotated(fRx*0.4, 1, 0, 0);//绕(1,0,0)
+	glRotated(fRy*0.4, 0, 1, 0);//绕(0,1,0)
+	glRotated(fRz*0.1, 0, 0, 1);//绕(0,0,1)
+	
+	//DoDrawObjGeneral(tObEnd, 0.056, 0, 134, -5, true);
+	
+
+	
+
+	
+
+	bFrist = false;
+	
+}

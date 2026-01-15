@@ -1,0 +1,11 @@
+
+​​/*//mouthUpperUp​​
+​​//语音动画​​：发中文韵母“ü”或英语元音“oo”时需轻微上提上唇​​
+//mouthShrugUpper表达困惑（配合browInnerUp眉毛上挑）
+//表现不屑或嘲讽（配合mouthFrown嘴角下垂）
+//mouthUpperUp通常用低权重（0.2 - 0.5）模拟自然唇动，而mouthShrugUpper需更高权重（0.5 - 1.0）以突出效果
+// CMFCDlgDlg 对话框
+//中文发音“ch”（如“吃”）需同时激活mouthShrugUpper（上提鼻翼）和mouthPucker（嘴唇撅起）。
+//mouthUpperUp是​​局部垂直运动​​（上唇中部），mouthShrugUpper是​​复合动作​​（上唇整体上提 + 鼻翼联动*//////
+
+
