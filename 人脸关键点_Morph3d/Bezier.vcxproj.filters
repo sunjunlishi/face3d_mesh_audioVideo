@@ -25,9 +25,6 @@
     <Filter Include="SpecialEfect">
       <UniqueIdentifier>{b8e84bfd-03cd-4177-a74f-b663451157e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="facedetect">
-      <UniqueIdentifier>{f3f36af9-8235-4b31-859b-a7ad8fb11283}</UniqueIdentifier>
-    </Filter>
     <Filter Include="soundplay">
       <UniqueIdentifier>{d63f7cc7-7061-4f77-bddf-9b64fb48cc5d}</UniqueIdentifier>
     </Filter>
@@ -71,9 +68,6 @@
     </ClCompile>
     <ClCompile Include="PublicFun.cpp">
       <Filter>CaptureDlg</Filter>
-    </ClCompile>
-    <ClCompile Include="jingmo\cpp\detection\face_detector.cpp">
-      <Filter>facedetect</Filter>
     </ClCompile>
     <ClCompile Include="TopLayerdlg.cpp">
       <Filter>Source Files</Filter>
@@ -165,9 +159,6 @@
     </ClInclude>
     <ClInclude Include="PublicFun.h">
       <Filter>CaptureDlg</Filter>
-    </ClInclude>
-    <ClInclude Include="jingmo\cpp\detection\face_detector.h">
-      <Filter>facedetect</Filter>
     </ClInclude>
     <ClInclude Include="TopLayerdlg.h">
       <Filter>Source Files</Filter>

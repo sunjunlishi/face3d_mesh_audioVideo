@@ -262,7 +262,7 @@
       <OutputFile>../bin/$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>../bin/lib;../../public/tbb/lib;.\OpenCV2.4.10\lib\Release;./lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opencv_highgui2410.lib;opencv_imgproc2410.lib;opencv_core2410.lib;OpenGL32.Lib;sherpa-onnx-portaudio_static.lib
-;speech-aligner.lib;lib64\glslang.lib;lib64\GenericCodeGen.lib;lib64\MachineIndependent.lib;lib64\OSDependent.lib;lib64\SPIRV.lib;lib64\OGLCompiler.lib;lib64\onnxruntime.lib;lib64\onnxinferdll.lib;lib64\sherpa-onnx-c-api.lib;ncnn.lib;GlU32.Lib;glut64.lib;glew32s.lib;nafxcw.lib;LIBCMT.lib</AdditionalDependencies>
+;speech-aligner.lib;lib64\onnxruntime.lib;lib64\onnxinferdll.lib;lib64\sherpa-onnx-c-api.lib;GlU32.Lib;glut64.lib;glew32s.lib;nafxcw.lib;LIBCMT.lib</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
@@ -280,7 +280,6 @@
     <ClCompile Include="Common\gLobalInfo.cpp" />
     <ClCompile Include="Common\hanziPinyin.cpp" />
     <ClCompile Include="globals.cpp" />
-    <ClCompile Include="jingmo\cpp\detection\face_detector.cpp" />
     <ClCompile Include="mfc3dshow\GLDevice.cpp" />
     <ClCompile Include="mfc3dshow\MFCDlgDlg.cpp" />
     <ClCompile Include="mfc3dshow\Nehe\3DFace.cpp" />
@@ -322,7 +321,6 @@
     <ClInclude Include="Common\gLobalInfo.h" />
     <ClInclude Include="Common\hanziPinyin.h" />
     <ClInclude Include="globals.h" />
-    <ClInclude Include="jingmo\cpp\detection\face_detector.h" />
     <ClInclude Include="mfc3dshow\GLDevice.h" />
     <ClInclude Include="mfc3dshow\MFCDlgDlg.h" />
     <ClInclude Include="mfc3dshow\Nehe\3DFace.h" />
